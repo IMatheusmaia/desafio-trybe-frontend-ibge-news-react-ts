@@ -26,6 +26,8 @@ export type NewsType = {
 };
 
 export type GlobalContextType = {
+  isLoged: boolean,
+  setIsLoged: (isLoged: boolean) => void,
   loading: boolean,
   theme: 'light' | 'dark',
   toggleTheme: () => void,
