@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { TiInfoLarge } from 'react-icons/ti';
+import GlobalContext from '../context/GlobalContext';
 import { NewsType } from '../types';
 import '../styles/card.css';
 
@@ -8,8 +10,13 @@ type CardProps = {
 };
 
 function Card({ notice }: CardProps) {
+  const { theme } = useContext(GlobalContext);
+
   return (
-    <article>
+    <article
+      className={ theme === 'dark' ? 'cardDark' : '' }
+      data-testid={ `card-${notice.id}` }
+    >
       <h1
         data-testId={ `card-title-${notice.id}` }
       >

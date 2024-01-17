@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import GlobalContext from '../context/GlobalContext';
 import { NewsType } from '../types';
 import Card from './Card';
 
@@ -6,8 +8,9 @@ type FigureProps = {
 };
 
 function Figure({ notice }: FigureProps) {
+  const { theme } = useContext(GlobalContext);
   return (
-    <section>
+    <section className={ theme === 'light' ? 'wallpaper' : 'wallpaper-dark' }>
       <Card notice={ notice } />
     </section>
   );

@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import GlobalContext from '../context/GlobalContext';
 import '../styles/footer.css';
 
 function Footer() {
+  const { theme } = useContext(GlobalContext);
   return (
-    <footer>
+    <footer className={ theme === 'dark' ? 'footer-dark' : 'footer-light' }>
       <div className="icons-container">
         <Link to="https://github.com/IMatheusmaia" target="_blank" data-testid="github">
           <FaGithub />

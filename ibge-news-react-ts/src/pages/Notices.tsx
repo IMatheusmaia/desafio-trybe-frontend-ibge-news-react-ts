@@ -11,7 +11,7 @@ function Notices() {
   const [recent, setRecent] = useState<boolean>(true);
   const [tail, setTail] = useState<number>(10);
 
-  const { news, loading } = useContext(GlobalContext);
+  const { news, theme, loading } = useContext(GlobalContext);
   if (loading) {
     return <Loading />;
   }
@@ -28,9 +28,15 @@ function Notices() {
   const oldest = latest.slice().reverse();
 
   return (
-    <div>
+    <div className={ theme === 'light' ? 'news-container' : 'news-container-dark' }>
       <Figure notice={ latest[0] } />
-      <ul>
+      <ul
+        className={
+        theme === 'light'
+          ? 'options-container'
+          : 'options-container-dark'
+      }
+      >
         <li
           onClickCapture={ () => setRecent(true) }
           className={ recent ? 'active-option' : '' }
@@ -62,6 +68,8 @@ function Notices() {
               }
       </div>
       <button
+        data-testid="more-news"
+        className={ theme === 'light' ? 'more-news' : 'more-news-dark' }
         onClick={ () => setTail(tail + 10) }
       >
         MAIS NOTÍCIAS
