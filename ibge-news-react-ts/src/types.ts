@@ -27,5 +27,7 @@ export type NewsType = {
 
 export type GlobalContextType = {
   loading: boolean,
+  theme: 'light' | 'dark',
+  toggleTheme: () => void,
   news: NewsType[],
 };

@@ -8,7 +8,11 @@ type ProviderContextProps = {
 };
 
 function ProviderContext({ children }: ProviderContextProps) {
+  const themeMemory = JSON.parse(localStorage.getItem('isDark')
+  || 'false') === true ? 'dark' : 'light';
+
   const [loading, setLoading] = useState<boolean>(true);
+  const [theme, setTheme] = useState<'light' | 'dark'>(themeMemory);
   const [news, setNews] = useState<NewsType[]>([]);
 
   useEffect(() => {
@@ -21,13 +25,24 @@ function ProviderContext({ children }: ProviderContextProps) {
       }, 1000);
     };
     getData();
-  }, []);
+    if (theme === 'dark') {
+      localStorage.setItem('isDark', 'true');
+    } else {
+      localStorage.removeItem('isDark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <GlobalContext.Provider
       value={
       {
         loading,
+        theme,
+        toggleTheme,
         news,
       }
       }
