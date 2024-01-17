@@ -8,12 +8,16 @@ type ProviderContextProps = {
 };
 
 function ProviderContext({ children }: ProviderContextProps) {
+  const favoriteMemory = JSON.parse(localStorage.getItem('favorite') || '[]');
   const themeMemory = JSON.parse(localStorage.getItem('isDark')
   || 'false') === true ? 'dark' : 'light';
+  const userMemory = JSON.parse(localStorage.getItem('user') || 'false') as boolean;
 
   const [loading, setLoading] = useState<boolean>(true);
   const [theme, setTheme] = useState<'light' | 'dark'>(themeMemory);
   const [news, setNews] = useState<NewsType[]>([]);
+  const [favorite, setFavorite] = useState<NewsType[]>(favoriteMemory);
+  const [isLoged, setIsLoged] = useState<boolean>(userMemory);
 
   useEffect(() => {
     setLoading(true);
@@ -44,6 +48,10 @@ function ProviderContext({ children }: ProviderContextProps) {
         theme,
         toggleTheme,
         news,
+        favorite,
+        setFavorite,
+        isLoged,
+        setIsLoged,
       }
       }
     >

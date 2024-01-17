@@ -32,4 +32,6 @@ export type GlobalContextType = {
   theme: 'light' | 'dark',
   toggleTheme: () => void,
   news: NewsType[],
+  favorite: NewsType[] | [],
+  setFavorite: (news: NewsType[]) => void,
 };
