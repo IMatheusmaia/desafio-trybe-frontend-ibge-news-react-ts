@@ -15,7 +15,7 @@ describe('Testa as funcionalidades da página de usuário', () => {
   });
 
   test('testa se ao clicar para favoritar uma notícia se é salvo no painel do usuário', async () => {
-    renderWithContext(<App />, '/');
+    renderWithContext(<App />, '/desafio-trybe-frontend-ibge-news-react-ts');
 
     const favBtn = await screen.findByTestId('favorite-38378');
     expect(favBtn).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe('Testa as funcionalidades da página de usuário', () => {
     expect(dateNotice).toBeInTheDocument();
   });
   test('testa se ao clicar em remover favirito a mensagem de nenhum favirito é exibida', async () => {
-    renderWithContext(<App />, '/user');
+    renderWithContext(<App />, '/desafio-trybe-frontend-ibge-news-react-ts/user');
     const removeBtn = await screen.findByTestId('remove-38378');
     expect(removeBtn).toBeInTheDocument();
     await userEvent.click(removeBtn);

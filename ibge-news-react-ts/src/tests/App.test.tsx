@@ -5,6 +5,8 @@ import App from '../App';
 import renderWithContext from '../utils/renderWithContext';
 import { responseAPI } from './mocks/responseAPI';
 
+const path = '/desafio-trybe-frontend-ibge-news-react-ts/login';
+
 describe('Testa se a partir da rota raiz os elementos esperados são renderizados e se os redirecionamentos de rota tem o comportamento esperado', () => {
   beforeEach(async () => (
     vi.spyOn(global, 'fetch').mockResolvedValue(await Promise.resolve({
@@ -57,14 +59,14 @@ describe('Testa se a partir da rota raiz os elementos esperados são renderizado
     expect(login).toBeInTheDocument();
   });
   test('testa se ao clicar no botão de notícias a partir da página de login se é redirecionado para página de notícias', async () => {
-    renderWithContext(<App />, '/login');
+    renderWithContext(<App />, path);
     const home = await screen.findByTestId('nav-home');
     userEvent.click(home);
     const logo = await screen.findByAltText('ibge-logo');
     expect(logo).toBeInTheDocument();
   });
   test('testa se ao clicar no botão de logar a partir da página de login se é redirecionado para página de usuário', async () => {
-    renderWithContext(<App />, '/login');
+    renderWithContext(<App />, path);
     const nameInput = screen.getByTestId('user-name');
     const emailInput = screen.getByTestId('email-input');
     const passwordInput = screen.getByTestId('password-input');
@@ -81,7 +83,7 @@ describe('Testa se a partir da rota raiz os elementos esperados são renderizado
     expect(name).toBeInTheDocument();
   });
   test('testa se ao clicar no botão de deslogar a partir da página de login se é redirecionado para página de notícias', async () => {
-    renderWithContext(<App />, '/login');
+    renderWithContext(<App />, path);
     const logout = await screen.findByRole('button');
     expect(logout).toBeInTheDocument();
 

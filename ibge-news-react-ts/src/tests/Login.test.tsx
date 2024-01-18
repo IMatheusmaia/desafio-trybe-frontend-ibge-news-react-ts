@@ -5,7 +5,7 @@ import renderWithContext from '../utils/renderWithContext';
 
 describe('testa elementoes e funcionalidades da página de login', () => {
   test('testa elementos na página de login', async () => {
-    renderWithContext(<App />, '/login');
+    renderWithContext(<App />, '/desafio-trybe-frontend-ibge-news-react-ts/login');
     const figura = screen.getByAltText('ilustration');
     const title = screen.getByText('Login');
     const nameInput = screen.getByTestId('user-name');

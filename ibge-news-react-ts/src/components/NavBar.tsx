@@ -17,13 +17,17 @@ function NavBar() {
       <div className="nav-right-container">
         <i
           data-testid="nav-home"
-          onClickCapture={ () => navegate('/') }
+          onClickCapture={ () => navegate('/desafio-trybe-frontend-ibge-news-react-ts') }
         >
           <RiFileListFill />
         </i>
         <i
           data-testid="nav-user"
-          onClickCapture={ () => (isLoged ? navegate('/user') : navegate('/login')) }
+          onClickCapture={
+            () => (
+              isLoged ? navegate('/desafio-trybe-frontend-ibge-news-react-ts/user')
+                : navegate('/desafio-trybe-frontend-ibge-news-react-ts/login'))
+              }
         >
           <RiAdminFill />
         </i>

@@ -15,7 +15,7 @@ describe('Testa as funcionalidades da página de noticias', () => {
   });
 
   test('testa se ao clicar em mais notícias se é exibido as notícias', async () => {
-    renderWithContext(<App />, '/');
+    renderWithContext(<App />, '/desafio-trybe-frontend-ibge-news-react-ts');
     const cards = await screen.findAllByRole('article');
     expect(cards.length).toBe(10);
 
@@ -26,7 +26,7 @@ describe('Testa as funcionalidades da página de noticias', () => {
   });
 
   test('testa se ao clicar no botão de favoritar um botão de desfavoritar é renderizado', async () => {
-    renderWithContext(<App />, '/');
+    renderWithContext(<App />, '/desafio-trybe-frontend-ibge-news-react-ts');
 
     const favBtn = await screen.findByTestId('favorite-38378');
 

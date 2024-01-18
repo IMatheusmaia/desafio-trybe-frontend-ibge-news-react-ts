@@ -42,7 +42,7 @@ function Login() {
     event.preventDefault();
     const user = JSON.stringify({ email: credential.email, name: credential.name });
     localStorage.setItem('user', user);
-    navigate('/user');
+    navigate('/desafio-trybe-frontend-ibge-news-react-ts/user');
   };
 
   return (
