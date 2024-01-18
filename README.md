@@ -68,3 +68,8 @@ Esse projeto é resultante do desafio de front-end lançado pela [Trybe](https:/
 > * o nome dos componentes testados estão descritos no diretório /src/tests
 > 
 2. Para ver a cobertura dos testes basta executar `npm run coverage`
+
+## Deploy 🕸️
+> gerado com o pacote gh-pages
+> 
+endereço: https://imatheusmaia.github.io/desafio-trybe-frontend-ibge-news-react-ts
