@@ -13,7 +13,6 @@ function User() {
   const handleLogout = () => {
     localStorage.clear();
     navigate('/desafio-trybe-frontend-ibge-news-react-ts');
-    window.location.reload();
   };
 
   return (
