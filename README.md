@@ -25,39 +25,39 @@ Esse projeto é resultante do desafio de front-end lançado pela [Trybe](https:/
 ## Estrutura do Projeto 🏗️
 
 ```
-├── ibge-news-react-ts
-│   ├── public
-│   ├── src
-|    ├── assets
-│         └── **
-|    ├── components
-│         └── **
-|    ├── context
-│         └── **
-|    ├── pages
-│         └── **
-|    ├── services
-│         └── **
-|    ├── styles
-│         └── **
-|    ├── tests
-│         └── **
-|    ├── utils
-│         └── **
-│    └── App.tsx
-│    └── index.css
-│    └── main.tsx
-│    └── types.ts
-│    └── vite-env.d.ts
-│ └── .eslintrc.json
-│ └── .gitignore
-│ └── index.html
-│ └── package-lock.json
-│ └── package.json
-│ └── setupTests.ts
-│ └── tsconfig.json
-│ └── tsconfig.node.json
-│	└── vite.config.ts
+  ├── ibge-news-react-ts
+  │   ├── public
+  │   ├── src
+  |    ├── assets
+  │         └── **
+  |    ├── components
+  │         └── **
+  |    ├── context
+  │         └── **
+  |    ├── pages
+  │         └── **
+  |    ├── services
+  │         └── **
+  |    ├── styles
+  │         └── **
+  |    ├── tests
+  │         └── **
+  |    ├── utils
+  │         └── **
+  │    └── App.tsx
+  │    └── index.css
+  │    └── main.tsx
+  │    └── types.ts
+  │    └── vite-env.d.ts
+  │ └── .eslintrc.json
+  │ └── .gitignore
+  │ └── index.html
+  │ └── package-lock.json
+  │ └── package.json
+  │ └── setupTests.ts
+  │ └── tsconfig.json
+  │ └── tsconfig.node.json
+  │	└── vite.config.ts
 ├── README.md
 ```
 
