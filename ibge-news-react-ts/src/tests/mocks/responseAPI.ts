@@ -168,7 +168,7 @@ export const responseAPI = {
       tipo: 'Release',
       titulo: 'Capacidade de armazenagem agrícola...',
       introducao: 'No 1º semestre de 2023, a capacidade...',
-      data_publicacao: '09/11/2023 09:00:00',
+      data_publicacao: '08/11/2023 09:00:00',
       produto_id: 9199,
       produtos: '9199|Pesquisa de Estoques|pesquisa-de-estoques|2070',
       editorias: 'economicas',
