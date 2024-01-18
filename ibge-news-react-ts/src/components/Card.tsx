@@ -39,17 +39,17 @@ function Card({ notice }: CardProps) {
       data-testid={ `card-${notice.id}` }
     >
       <h1
-        data-testId={ `card-title-${notice.id}` }
+        data-testid={ `card-title-${notice.id}` }
       >
         { notice.titulo }
       </h1>
       <p
-        data-testId={ `card-text-${notice.id}` }
+        data-testid={ `card-text-${notice.id}` }
       >
         {notice.introducao}
       </p>
       <span
-        data-testId={ `card-date-${notice.id}` }
+        data-testid={ `card-date-${notice.id}` }
       >
         {notice.diffDays === 0 ? 'hoje' : `${notice.diffDays} dia(s) atrás`}
       </span>

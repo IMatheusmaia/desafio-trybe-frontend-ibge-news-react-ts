@@ -24,9 +24,7 @@ function ProviderContext({ children }: ProviderContextProps) {
     const getData = async (): Promise<void> => {
       const data = await request();
       setNews(data);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+      setLoading(false);
     };
     getData();
     if (theme === 'dark') {

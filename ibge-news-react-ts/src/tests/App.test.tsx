@@ -1,10 +1,11 @@
 import { screen } from '@testing-library/react';
 import { vi } from 'vitest';
+import { userEvent } from '@testing-library/user-event';
 import App from '../App';
 import renderWithContext from '../utils/renderWithContext';
 import { responseAPI } from './mocks/responseAPI';
 
-describe('Testa se a partir da rota raiz os elementos esperados são renderizados e se os redirecionamentos de rota tem o comportamento esperado', async () => {
+describe('Testa se a partir da rota raiz os elementos esperados são renderizados e se os redirecionamentos de rota tem o comportamento esperado', () => {
   beforeEach(async () => (
     vi.spyOn(global, 'fetch').mockResolvedValue(await Promise.resolve({
       ok: true,
@@ -47,5 +48,45 @@ describe('Testa se a partir da rota raiz os elementos esperados são renderizado
     expect(buttonMoreCards).toBeInTheDocument();
     expect(linkedin).toBeInTheDocument();
     expect(github).toBeInTheDocument();
+  });
+  test('testa se ao clicar no botão de login é redirecionado para página de login', async () => {
+    renderWithContext(<App />);
+    const user = await screen.findByTestId('nav-user');
+    userEvent.click(user);
+    const login = await screen.findByTestId('login-title');
+    expect(login).toBeInTheDocument();
+  });
+  test('testa se ao clicar no botão de notícias a partir da página de login se é redirecionado para página de notícias', async () => {
+    renderWithContext(<App />, '/login');
+    const home = await screen.findByTestId('nav-home');
+    userEvent.click(home);
+    const logo = await screen.findByAltText('ibge-logo');
+    expect(logo).toBeInTheDocument();
+  });
+  test('testa se ao clicar no botão de logar a partir da página de login se é redirecionado para página de usuário', async () => {
+    renderWithContext(<App />, '/login');
+    const nameInput = screen.getByTestId('user-name');
+    const emailInput = screen.getByTestId('email-input');
+    const passwordInput = screen.getByTestId('password-input');
+    const button = screen.getByTestId('login-submit-btn');
+
+    await userEvent.type(nameInput, 'Icaro');
+    await userEvent.type(emailInput, 'mail@mail.com');
+    await userEvent.type(passwordInput, '1234567');
+    userEvent.click(button);
+    const descricao = await screen.findByText('Você ainda não favoritou uma notícia.');
+    const name = await screen.findByText('Olá, Icaro!');
+
+    expect(descricao).toBeInTheDocument();
+    expect(name).toBeInTheDocument();
+  });
+  test('testa se ao clicar no botão de deslogar a partir da página de login se é redirecionado para página de notícias', async () => {
+    renderWithContext(<App />, '/login');
+    const logout = await screen.findByRole('button');
+    expect(logout).toBeInTheDocument();
+
+    await userEvent.click(logout);
+    const logo = await screen.findByAltText('ibge-logo');
+    expect(logo).toBeInTheDocument();
   });
 });
