@@ -12,7 +12,7 @@ function User() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   const handleLogout = () => {
     localStorage.clear();
-    navigate('/');
+    navigate('/desafio-trybe-frontend-ibge-news-react-ts');
     window.location.reload();
   };
 

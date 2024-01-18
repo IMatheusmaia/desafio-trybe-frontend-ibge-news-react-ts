@@ -14,7 +14,7 @@ function App() {
         <Route path={ `${base}/user` } element={ <User /> } />
         <Route path={ `${base}/login` } element={ <LoginWrapper /> } />
       </Route>
-      <Route path="/*" element={ <NotFound /> } />
+      <Route path={ `${base}/*` } element={ <NotFound /> } />
     </Routes>
   );
 }
